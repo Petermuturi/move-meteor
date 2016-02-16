@@ -3,12 +3,36 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+    <div class="top">
+    <div class="up">
+    {{> loginButtons}}
+    <p>Daily workouts</p>
+    <form class="routine">
+    <input type="text" class="entr"	name="title" placeholder="Add a routine">
+    <br/>
+    <br/>
+    	<input type="submit" class="snd" value="Add">
+        <label class="hide">
+        <span>Hide completed tasks</span>
+            <input type="checkbox" checked="{{finished}}">
 
-  {{> hello}}
+        </label>
+    </form>
+    </div>
+    <p>tasks</p>
+    <ul>
+    	  {{#each tasks}}
+        {{> main}}
+      {{/each}}
+    </ul>
+    </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="main">
+ <li>
+   <input type="checkbox" checked="{{checked}}" class="check">
+ <span>{{title}} </span>
+  <button class="delete">X</button>
+ </li>
+ <hr>
 </template>
